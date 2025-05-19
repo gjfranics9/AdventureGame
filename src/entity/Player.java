@@ -28,8 +28,8 @@ public class Player extends Entity{
         solidArea = new Rectangle();
         solidArea.x = 0;
         solidArea.y = 0;
-        solidArea.width = (int)(gp.tileSize);
-        solidArea.height = (int)(gp.tileSize);
+        solidArea.width = (gp.tileSize);
+        solidArea.height = (gp.tileSize);
 
         setDefaultValues();
         getPlayerImage();
@@ -77,7 +77,7 @@ public class Player extends Entity{
             direction = "right";
             moving = true;
         } else {
-                if(worldX%gp.tileSize==0 && worldY%gp.tileSize==0 && !collisionOn) {
+                if(worldX%gp.tileSize==0 && worldY%gp.tileSize==0) {
                     moving = false;
                 }
             }
