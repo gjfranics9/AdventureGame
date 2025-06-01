@@ -26,15 +26,15 @@ public class GamePanel extends JPanel implements Runnable {
 
     int FPS = 60;
 
-    MapManager mm = new MapManager(this);
+    public MapManager mm = new MapManager(this);
     TileManager tileM = new TileManager(this, mm);
 
 
-    KeyHandler keyH = new KeyHandler();
+    public KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
-    public Player player = new Player(this,keyH);
+    public Player player = new Player(this);
     public SuperObject[] obj = new SuperObject[10];
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
