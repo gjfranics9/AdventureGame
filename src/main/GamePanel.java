@@ -1,6 +1,8 @@
 package main;
 
+import Map.MapManager;
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -24,19 +26,16 @@ public class GamePanel extends JPanel implements Runnable {
 
     int FPS = 60;
 
-    TileManager tileM = new TileManager(this);
+    public MapManager mm = new MapManager(this);
+    TileManager tileM = new TileManager(this, mm);
 
 
-    KeyHandler keyH = new KeyHandler();
+    public KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
-    public Player player = new Player(this,keyH);
-
-    //Set player default position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
-
+    public AssetSetter assetSetter = new AssetSetter(this);
+    public Player player = new Player(this);
+    public SuperObject[] obj = new SuperObject[10];
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -45,6 +44,13 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    public void setupGame(){
+
+        mm.loadTileMap(mm.getCurrentMap(), maxWorldCol, maxWorldRow);
+        mm.setCurrentMap(0);
+        var current_items = mm.retrieveCurrentMapItems();
+        assetSetter.setObjectsFromMap(current_items);
+    }
     public void startGameThread(){
 
         gameThread = new Thread(this);
@@ -90,6 +96,12 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D)g;
 
         tileM.draw(g2);
+
+        for(int i = 0; i < obj.length; i++){
+            if(obj[i] != null){
+                obj[i].draw(g2, this);
+            }
+        }
 
         player.draw(g2);
 

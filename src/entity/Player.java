@@ -17,10 +17,10 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
 
-    public Player(GamePanel gp, KeyHandler keyH){
+    public Player(GamePanel gp){
 
         this.gp = gp;
-        this.keyH = keyH;
+        this.keyH = gp.keyH;
 
         screenX = gp.screenWidth/2;
         screenY = gp.screenHeight/2;
