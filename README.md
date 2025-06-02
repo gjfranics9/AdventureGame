@@ -1,8 +1,8 @@
-###🧭 Pokemon Game?
+### 🧭 Pokemon Game?
 
 It’s a personal project, a proving ground, and a collection of "that’ll do" code solutions held together by sheer force of will and caffeine.
 
-##🎮 What's This All About?
+## 🎮 What's This All About?
 
 Think: top-down pixel adventure, minimal graphics, maximal learning.
 I'm using this game to explore:
@@ -15,7 +15,7 @@ Object interactions
 Crying when NullPointerException appears in the console
 This is not a polished indie title destined for Steam (yet). It's where I try out new mechanics, mess with architecture, and learn by doing (and debugging... a lot of debugging).
 
-##🧪 Features (Subject to Spontaneous Breakage)
+## 🧪 Features (Subject to Spontaneous Breakage)
 
 🚶 Player movement via keyboard
 🗺️ Tile-based map rendering
@@ -27,7 +27,7 @@ This is not a polished indie title destined for Steam (yet). It's where I try ou
 Java (the beverage of choice for most IDEs)
 IntelliJ IDEA (because I enjoy the pain of 500-line stack traces in a friendly UI)
 
-##🚀 Getting Started
+## 🚀 Getting Started
 
 Requirements
 Java 8+ (or something close enough)
@@ -49,13 +49,13 @@ AdventureGame/
 └── pokemonProject.iml   # Shhh... it's a legacy name
 `
 
-##🎮 Controls
+## 🎮 Controls
 
 Arrow keys: Move around
 E (eventually): Interact (probably)
 ESC: Exit, when it’s all too much
 
-##🧠 Why This Exists
+## 🧠 Why This Exists
 
 I wanted to build something that lets me:
 
@@ -65,7 +65,7 @@ Practice test writing (because apparently that’s important)
 Have fun making something entirely mine
 And if it helps someone else learn along the way — or makes them laugh at my method names — even better.
 
-##💡 TODO (aka the Wish List)
+## 💡 TODO (aka the Wish List)
 
 A battle system, this is one that will take a while but is arguably the most important feature
 An entire database of different pokemon, each pokemon should be able to have multiple instances so that you can actually use and store them, also different characteristics for unqiue pokemon - more research into their uniqueness needed
@@ -80,7 +80,7 @@ I also really hate the way I've handled placing items on the map, instead of loa
 
 It’s a solo project for now, but feel free to fork, star, laugh, or steal code responsibly. If you’ve got ideas or spot bugs, pull requests are welcome (no promises I won’t break it again later).
 
-##📜 License
+## 📜 License
 
 MIT — because sharing is caring.
 
