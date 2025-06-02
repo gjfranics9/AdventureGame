@@ -1,4 +1,4 @@
-### 🧭 Pokemon Game?
+# 🧭 Pokemon Game?
 
 It’s a personal project, a proving ground, and a collection of "that’ll do" code solutions held together by sheer force of will and caffeine.
 
