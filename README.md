@@ -40,12 +40,12 @@ Run the Main class.
 Watch a window appear. Be amazed.
 🗂️ Project Structure (Roughly Speaking)
 
-AdventureGame/
+AdventureGame//n
 ├── src/
-│   ├── main/            # Actual game code lives here
-│   └── test/            # Some JUnit tests for when I'm feeling responsible
-├── res/                 # Player sprites and map files
-└── pokemonProject.iml   # Shhh... it's a legacy name
+│   ├── main/            # Actual game code lives here/n
+│   └── test/            # Some JUnit tests for when I'm feeling responsible/n
+├── res/                 # Player sprites and map files/n
+└── pokemonProject.iml   # Shhh... it's a legacy name/n
 🎮 Controls
 
 Arrow keys: Move around
