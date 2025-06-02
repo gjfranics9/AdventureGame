@@ -15,7 +15,7 @@ public class Entity {
     public int spriteNum = 1;
     public boolean moving;
 
-    public int movementFraction = 10;
+    public boolean sprinting;
 
     public Rectangle solidArea;
     public boolean collisionOn = false;

@@ -15,17 +15,15 @@ public class TileManager {
     public Tile[] tile;
     public int[][] mapTileNum;
 
-    public TileManager(GamePanel gp, MapManager mm){
+    public TileManager(GamePanel gp){
         
         this.gp = gp;
-        this.mm = mm;
+        this.mm = gp.mm;
         tile = new Tile[256];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         
         getTileImage();
-        String currentMap = mm.getCurrentMap();
-        int[][] tileMap = mm.currentTileMap;
         System.out.println(mapTileNum[0][7]);
     }
     
@@ -34,22 +32,26 @@ public class TileManager {
         try{
 
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/grassTile.png")));
+            tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/treeTile.png")));
+            tile[0].collision = true;
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/pathTile.png")));
+            tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/grassTile.png")));
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/waterTile.png")));
+            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/untextured.png")));
             tile[2].collision = true;
 
             tile[3] = new Tile();
-            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/treeTile.png")));
-            tile[3].collision = true;
+            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/doorTile.png")));
 
-            tile[98] = new Tile();
-            tile[98].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/untextured.png")));
-            tile[98].collision = true;
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/pathTile.png")));
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/waterTile.png")));
+            tile[5].collision = true;
+
 
         }catch(IOException e){
             e.printStackTrace();

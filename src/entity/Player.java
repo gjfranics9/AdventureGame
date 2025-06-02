@@ -42,6 +42,7 @@ public class Player extends Entity{
         worldY = gp.tileSize * gp.maxWorldRow/2;
         speed = 4;
         direction = "down";
+        sprinting = false;
     }
     public void getPlayerImage(){
         try{
@@ -64,6 +65,12 @@ public class Player extends Entity{
 
     public void update() {
 
+        if(keyH.spacePressed){
+            sprinting = true;
+        }
+        else{
+            sprinting = false;
+        }
         if (keyH.upPressed && !moving) {
             direction = "up";
             moving = true;
@@ -85,23 +92,18 @@ public class Player extends Entity{
         collisionOn = false;
         gp.cChecker.checkTile(this);
 
-        //position update block
-        if(!collisionOn && moving){
+
+        int actualSpeed = (int) (sprinting ? speed * 1.5 : speed);
+
+        if (!collisionOn && moving) {
             switch (direction) {
-                case "up" -> {
-                    worldY -= gp.tileSize / movementFraction;
-                }
-                case "down" -> {
-                    worldY += gp.tileSize / movementFraction;
-                }
-                case "left" -> {
-                    worldX -= gp.tileSize / movementFraction;
-                }
-                case "right" -> {
-                    worldX += gp.tileSize / movementFraction;
-                }
+                case "up" -> worldY -= actualSpeed;
+                case "down" -> worldY += actualSpeed;
+                case "left" -> worldX -= actualSpeed;
+                case "right" -> worldX += actualSpeed;
             }
         }
+
 
 
         spriteCounter++;

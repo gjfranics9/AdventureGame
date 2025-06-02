@@ -1,6 +1,7 @@
 package Map;
 
 import main.GamePanel;
+import main.StubGamePanel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ class MapManagerTest {
 
     @BeforeEach
     void setUp() {
-        GamePanel mockGamePanel = new GamePanel(); // Replace with mock if needed
+        StubGamePanel mockGamePanel = new StubGamePanel();
         mapManager = new MapManager(mockGamePanel);
     }
 
