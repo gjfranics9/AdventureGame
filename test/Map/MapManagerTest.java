@@ -1,6 +1,5 @@
 package Map;
 
-import main.GamePanel;
 import main.StubGamePanel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

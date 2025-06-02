@@ -65,12 +65,7 @@ public class Player extends Entity{
 
     public void update() {
 
-        if(keyH.spacePressed){
-            sprinting = true;
-        }
-        else{
-            sprinting = false;
-        }
+        sprinting = keyH.spacePressed;
         if (keyH.upPressed && !moving) {
             direction = "up";
             moving = true;
