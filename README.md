@@ -66,7 +66,7 @@ Practice test writing (because apparently that’s important)
 Have fun making something entirely mine
 And if it helps someone else learn along the way — or makes them laugh at my method names — even better.
 
-### 💡 TODO
+## 💡 TODO
 
 - [ ] **Battle System** – Core turn-based logic, animations, and UI.
 - [ ] **Pokémon Database** – Unique instances, characteristics, stats.
