@@ -63,12 +63,15 @@ And if it helps someone else learn along the way — or makes them laugh at my m
 
 💡 TODO (aka the Wish List)
 
-A battle system
-Usable items
-NPCs
-Interactable tiles
-Any UI features (Who knows)
-Multiple maps with connecting portals
+A battle system, this is one that will take a while but is arguably the most important feature
+An entire database of different pokemon, each pokemon should be able to have multiple instances so that you can actually use and store them, also different characteristics for unqiue pokemon - more research into their uniqueness needed
+Saving state is important. The data I feel needs to be fixed is whats been interacted with so far - what pokemon the character has and the state they are in, the items held and the position in the map.
+Usable items - there are multiple types here like the key items, usable items, and in battle items. Storing them all in a bag under different sections works for me
+NPCs - this is not of as much of a priority to me, I would rather focus on the main aspects
+Interactable tiles such as the water tiles and item tiles - this is probably a sooner rather than later one
+Any UI features (Who knows), a bag/settings/pokedex menu as well as a menu to start the game
+Multiple maps with connecting portals, eventually hopefully connecting to an entire region/map
+I also really hate the way I've handled placing items on the map, instead of loading an individual file in pair with each map I think a better idea is to store them all in one json file with a list of objects under the key of the map ID
 
 
 It’s a solo project for now, but feel free to fork, star, laugh, or steal code responsibly. If you’ve got ideas or spot bugs, pull requests are welcome (no promises I won’t break it again later).
