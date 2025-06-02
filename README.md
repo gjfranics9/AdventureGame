@@ -42,14 +42,12 @@ Watch a window appear. Be amazed.
 ##🗂️ Project Structure (Roughly Speaking)
 
 <pre>
-  <br>
-AdventureGame/
-├── src/
-│   ├── main/            # Actual game code lives here
-│   └── test/            # Some JUnit tests for when I'm feeling responsible
-├── res/                 # Player sprites and map files
-└── pokemonProject.iml   # Shhh... it's a legacy name
-  <br>
+  AdventureGame/
+  ├── src/
+  │   ├── main/            # Actual game code lives here
+  │   └── test/            # Some JUnit tests for when I'm feeling responsible
+  ├── res/                 # Player sprites and map files
+  └── pokemonProject.iml   # Shhh... it's a legacy name
 </pre>
 
 ## 🎮 Controls
