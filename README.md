@@ -40,14 +40,17 @@ Open in IntelliJ (File > Open > point to the directory).
 Run the Main class.
 Watch a window appear. Be amazed.
 ##🗂️ Project Structure (Roughly Speaking)
-`
-AdventureGame/
-├── src/
-│   ├── main/            # Actual game code lives here
-│   └── test/            # Some JUnit tests for when I'm feeling responsible
-├── res/                 # Player sprites and map files
-└── pokemonProject.iml   # Shhh... it's a legacy name
-`
+
+<pre>
+  <br>
+    AdventureGame/
+    ├── src/
+    │   ├── main/            # Actual game code lives here
+    │   └── test/            # Some JUnit tests for when I'm feeling responsible
+    ├── res/                 # Player sprites and map files
+    └── pokemonProject.iml   # Shhh... it's a legacy name
+  <br>
+</pre>
 
 ## 🎮 Controls
 
