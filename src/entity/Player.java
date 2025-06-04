@@ -1,6 +1,5 @@
 package entity;
 
-import main.GamePanel;
 import main.KeyHandler;
 import state.OverworldState;
 
@@ -8,7 +7,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.security.Key;
 import java.util.Objects;
 
 public class Player extends Entity{
@@ -147,7 +145,6 @@ public class Player extends Entity{
             spriteCounter = 0;
         }
     }
-
 
     public void draw(Graphics2D g2){
         BufferedImage image = null;
