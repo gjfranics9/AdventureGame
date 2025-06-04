@@ -11,7 +11,7 @@ public class TileManagerTest {
     @BeforeEach
     void setUp() {
         StubGamePanel mockGamePanel = new StubGamePanel();
-        tileManager = new TileManager(mockGamePanel);
+        tileManager = new TileManager(mockGamePanel.stubOverworldState);
     }
 
     @Test

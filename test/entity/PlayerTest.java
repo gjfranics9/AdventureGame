@@ -5,6 +5,7 @@ import main.StubGamePanel;
 import main.StubKeyHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import state.StubOverworldState;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,21 +21,21 @@ class PlayerTest {
         cChecker = new StubCollisionChecker();
 
         StubGamePanel gp = new StubGamePanel();
-        gp.keyH = keyH;
-        gp.cChecker = cChecker;
+        gp.stubOverworldState = new StubOverworldState(gp, cChecker);
+        gp.stubOverworldState.setupState();
 
-        player = new Player(gp);
+        player = new Player(gp.stubOverworldState,keyH);
     }
 
 
     @Test
     void testRightMovementWithoutCollision() {
-        player.worldX = 7; // Not divisible by tileSize
+        player.worldX = 7;
         player.worldY = 7;
         int startX = player.worldX;
 
         cChecker.simulateCollision = false;
-        keyH.rightPressed = true;
+        player.keyH.rightPressed = true;
 
         player.update();
 
@@ -53,7 +54,7 @@ class PlayerTest {
         int startX = player.worldX;
 
         cChecker.simulateCollision = false;
-        keyH.leftPressed = true;
+        player.keyH.leftPressed = true;
 
         player.update();
 
@@ -72,7 +73,7 @@ class PlayerTest {
         int startY = player.worldY;
 
         cChecker.simulateCollision = false;
-        keyH.upPressed = true;
+        player.keyH.upPressed = true;
 
         player.update();
 
@@ -91,7 +92,7 @@ class PlayerTest {
         int startY = player.worldY;
 
         cChecker.simulateCollision = false;
-        keyH.downPressed = true;
+        player.keyH.downPressed = true;
 
         player.update();
 
@@ -105,7 +106,7 @@ class PlayerTest {
 
     @Test
     void testNoRightMovementWhenCollision() {
-        keyH.rightPressed = true;
+        player.keyH.rightPressed = true;
         cChecker.simulateCollision = true;
 
         int startX = player.worldX;
@@ -120,7 +121,7 @@ class PlayerTest {
 
     @Test
     void testNoLeftMovementWhenCollision() {
-        keyH.leftPressed = true;
+        player.keyH.leftPressed = true;
         cChecker.simulateCollision = true;
 
         int startX = player.worldX;
@@ -135,7 +136,7 @@ class PlayerTest {
 
     @Test
     void testNoUpMovementWhenCollision() {
-        keyH.upPressed = true;
+        player.keyH.upPressed = true;
         cChecker.simulateCollision = true;
 
         int startY = player.worldY;
@@ -150,7 +151,7 @@ class PlayerTest {
 
     @Test
     void testNoDownMovementWhenCollision() {
-        keyH.downPressed = true;
+        player.keyH.downPressed = true;
         cChecker.simulateCollision = true;
 
         int startY = player.worldY;
@@ -167,8 +168,8 @@ class PlayerTest {
     void testSprintingIncreasesMovementSpeed() {
         int initialX = player.worldX;
 
-        keyH.rightPressed = true;
-        keyH.spacePressed = true;
+        player.keyH.rightPressed = true;
+        player.keyH.spacePressed = true;
         cChecker.simulateCollision = false;
         player.moving = false;
 

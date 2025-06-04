@@ -1,15 +1,16 @@
 package main;
 
 import object.*;
+import state.OverworldState;
 
 import java.util.*;
 
 public class AssetSetter {
 
-    GamePanel gp;
+    OverworldState overworldState;
 
-    public AssetSetter(GamePanel gp) {
-        this.gp = gp;
+    public AssetSetter(OverworldState overworldState) {
+        this.overworldState = overworldState;
     }
 
 
@@ -32,15 +33,15 @@ public class AssetSetter {
             }
 
             for (int[] coords : entry.getValue()) {
-                if (index >= gp.obj.length) {
+                if (index >= overworldState.objectHandler.obj.length) {
                     System.out.println("gp.obj array full");
                     return;
                 }
 
                 SuperObject obj = factory.create();
-                obj.worldX = coords[0] * gp.tileSize;
-                obj.worldY = coords[1] * gp.tileSize;
-                gp.obj[index++] = obj;
+                obj.worldX = coords[0] * overworldState.gp.tileSize;
+                obj.worldY = coords[1] * overworldState.gp.tileSize;
+                overworldState.objectHandler.obj[index++] = obj;
             }
         }
     }

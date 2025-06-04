@@ -12,7 +12,7 @@ class MapManagerTest {
     @BeforeEach
     void setUp() {
         StubGamePanel mockGamePanel = new StubGamePanel();
-        mapManager = new MapManager(mockGamePanel);
+        mapManager = new MapManager(mockGamePanel.stubOverworldState);
     }
 
     @Test

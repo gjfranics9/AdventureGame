@@ -1,19 +1,20 @@
 package Map;
 
 import main.GamePanel;
+import state.OverworldState;
 
 import java.io.*;
 import java.util.*;
 
 public class MapManager {
 
-    public GamePanel gp;
+    public OverworldState overworldState;
     public String[][] maps;
     public int currentMap;
     public int[][] currentTileMap;
 
-    public MapManager(GamePanel gp) {
-        this.gp = gp;
+    public MapManager(OverworldState overworldState) {
+        this.overworldState = overworldState;
         this.maps = new String[99][2];
         this.currentMap = 0;
         assembleAllMaps();

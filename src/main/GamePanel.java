@@ -1,16 +1,14 @@
 package main;
 
-import Map.MapManager;
-import entity.Player;
-import object.SuperObject;
-import tile.TileManager;
+import state.GameStateManager;
+
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    // SCREEN SETINGS
+    //Screen Settings
     final int originalTileSize = 16;
     final int scale =3;
     public final int tileSize = originalTileSize * scale;
@@ -18,22 +16,16 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
-
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
-
     int FPS = 60;
 
-    public MapManager mm = new MapManager(this);
-    TileManager tileM = new TileManager(this);
-
-
+    //Class Settings
     public KeyHandler keyH = new KeyHandler();
+    private final GameStateManager stateManager = new GameStateManager(this);
     Thread gameThread;
-    public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter assetSetter = new AssetSetter(this);
-    public Player player = new Player(this);
-    public SuperObject[] obj = new SuperObject[10];
+
+
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -43,11 +35,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void setupGame(){
-
-        mm.loadTileMap(mm.getCurrentMap(), maxWorldCol, maxWorldRow);
-        mm.setCurrentMap(0);
-        var current_items = mm.retrieveCurrentMapItems();
-        assetSetter.setObjectsFromMap(current_items);
+        stateManager.setState(stateManager.overworldState);
+        stateManager.currentState.setupState();
     }
     public void startGameThread(){
 
@@ -83,25 +72,17 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-    public void update(){
-        player.update();
+
+    public void update() {
+        stateManager.getCurrentState().update();
     }
 
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
-
         Graphics2D g2 = (Graphics2D)g;
 
-        tileM.draw(g2);
-
-        for (SuperObject superObject : obj) {
-            if (superObject != null) {
-                superObject.draw(g2, this);
-            }
-        }
-
-        player.draw(g2);
+        if(stateManager.currentState != null){stateManager.currentState.draw(g2);};
 
         g2.dispose();
     }

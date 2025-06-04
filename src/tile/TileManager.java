@@ -2,6 +2,7 @@ package tile;
 
 import Map.MapManager;
 import main.GamePanel;
+import state.OverworldState;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,17 +11,17 @@ import java.util.Objects;
 
 public class TileManager {
 
-    GamePanel gp;
+    OverworldState overworldState;
     MapManager mm;
     public Tile[] tile;
     public int[][] mapTileNum;
 
-    public TileManager(GamePanel gp){
+    public TileManager(OverworldState overworldState){
         
-        this.gp = gp;
-        this.mm = gp.mm;
+        this.overworldState = overworldState;
+        this.mm = overworldState.mm;
         tile = new Tile[256];
-        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+        mapTileNum = new int[overworldState.gp.maxWorldCol][overworldState.gp.maxWorldRow];
 
         
         getTileImage();
@@ -61,21 +62,21 @@ public class TileManager {
     public void draw(Graphics2D g2) {
         int[][] tileMap = mm.currentTileMap;
 
-        for (int row = 0; row < gp.maxWorldRow; row++) {
-            for (int col = 0; col < gp.maxWorldCol; col++) {
+        for (int row = 0; row < overworldState.gp.maxWorldRow; row++) {
+            for (int col = 0; col < overworldState.gp.maxWorldCol; col++) {
                 int tileNum = tileMap[col][row];
 
-                int worldX = col * gp.tileSize;
-                int worldY = row * gp.tileSize;
-                int screenX = worldX - gp.player.worldX + gp.player.screenX;
-                int screenY = worldY - gp.player.worldY + gp.player.screenY;
+                int worldX = col * overworldState.gp.tileSize;
+                int worldY = row * overworldState.gp.tileSize;
+                int screenX = worldX - overworldState.player.worldX + overworldState.player.screenX;
+                int screenY = worldY - overworldState.player.worldY + overworldState.player.screenY;
 
-                if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
-                        worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
-                        worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
-                        worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
+                if (worldX + overworldState.gp.tileSize > overworldState.player.worldX - overworldState.player.screenX &&
+                        worldX - overworldState.gp.tileSize < overworldState.player.worldX + overworldState.player.screenX &&
+                        worldY + overworldState.gp.tileSize > overworldState.player.worldY - overworldState.player.screenY &&
+                        worldY - overworldState.gp.tileSize < overworldState.player.worldY + overworldState.player.screenY) {
 
-                    g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                    g2.drawImage(tile[tileNum].image, screenX, screenY, overworldState.gp.tileSize, overworldState.gp.tileSize, null);
                 }
             }
         }

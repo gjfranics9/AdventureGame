@@ -1,13 +1,14 @@
 package main;
 import entity.Entity;
+import state.OverworldState;
 //comment
 
 public class CollisionChecker {
 
-    GamePanel gp;
+    OverworldState overworldState;
 
-    public CollisionChecker(GamePanel gp){
-        this.gp = gp;
+    public CollisionChecker(OverworldState overworldState){
+        this.overworldState = overworldState;
     }
 
     public void checkTile(Entity entity){
@@ -17,33 +18,33 @@ public class CollisionChecker {
         int entityTopWorldY = entity.worldY - entity.solidArea.y;
         int entityBottomWorldY = entity.worldY + entity.solidArea.y + entity.solidArea.height;
 
-        int entityLeftCol = entityLeftWorldX / gp.tileSize;
-        int entityRightCol = entityRightWorldX / gp.tileSize;
-        int entityTopRow = entityTopWorldY / gp.tileSize;
-        int entityBottomRow = entityBottomWorldY / gp.tileSize;
+        int entityLeftCol = entityLeftWorldX / overworldState.gp.tileSize;
+        int entityRightCol = entityRightWorldX / overworldState.gp.tileSize;
+        int entityTopRow = entityTopWorldY / overworldState.gp.tileSize;
+        int entityBottomRow = entityBottomWorldY / overworldState.gp.tileSize;
 
         int checkedTile;
 
         switch (entity.direction) {
             case "up" -> {
-                entityTopRow = (entityTopWorldY - entity.speed) / gp.tileSize;
-                checkedTile = gp.mm.currentTileMap[entityLeftCol][entityTopRow];
-                if(gp.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
+                entityTopRow = (entityTopWorldY - entity.speed) / overworldState.gp.tileSize;
+                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
+                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
             }
             case "down" -> {
-                entityBottomRow = (entityBottomWorldY) / gp.tileSize;
-                checkedTile = gp.mm.currentTileMap[entityLeftCol][entityBottomRow];
-                if(gp.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
+                entityBottomRow = (entityBottomWorldY) / overworldState.gp.tileSize;
+                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityBottomRow];
+                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
             }
             case "left" -> {
-                entityLeftCol = (entityLeftWorldX - entity.speed) / gp.tileSize;
-                checkedTile = gp.mm.currentTileMap[entityLeftCol][entityTopRow];
-                if(gp.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
+                entityLeftCol = (entityLeftWorldX - entity.speed) / overworldState.gp.tileSize;
+                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
+                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
             }
             case "right" -> {
-                entityRightCol = (entityRightWorldX) / gp.tileSize;
-                checkedTile = gp.mm.currentTileMap[entityRightCol][entityTopRow];
-                if(gp.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
+                entityRightCol = (entityRightWorldX) / overworldState.gp.tileSize;
+                checkedTile = overworldState.mm.currentTileMap[entityRightCol][entityTopRow];
+                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
             }
         }
     }
