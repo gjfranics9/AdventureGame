@@ -1,4 +1,3 @@
-// main/BattleState.java
 package state;
 
 import main.GamePanel;

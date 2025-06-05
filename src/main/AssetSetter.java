@@ -14,10 +14,8 @@ public class AssetSetter {
     }
 
 
-    // Factory map to create objects by name
     private final Map<String, GameObjectFactory> objectFactoryMap = new HashMap<>() {{
         put("pokeball", ObjBall::new);
-        // Add more as needed
     }};
 
     public void setObjectsFromMap(Map<String, List<int[]>> itemMap) {

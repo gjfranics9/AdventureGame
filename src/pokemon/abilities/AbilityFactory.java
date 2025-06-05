@@ -5,8 +5,7 @@ public class AbilityFactory {
         return switch (abilityName.toLowerCase()) {
             case "blaze" -> new Blaze();
             case "overgrow" -> new Overgrow();
-            // Add other abilities here
-            default -> null; // or a default ability
+            default -> null;
         };
     }
 }
