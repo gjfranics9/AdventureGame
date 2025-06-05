@@ -1,0 +1,30 @@
+{
+  "id": 254,
+  "name": "Sceptile",
+  "type": ["Grass"],
+  "baseStats": {
+    "hp": 70, "attack": 85, "defense": 65, "specialAttack": 105, "specialDefense": 85, "speed": 120
+  },
+  "baseExperience": 239,
+  "evolution": null,
+  "abilities": ["Overgrow"], "hiddenAbility": "Unburden",
+  "sprite": "sprites/sceptile.png",
+  "backSprite": "sprites/sceptile_back.png",
+  "icon": "icons/sceptile.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Dragon"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 1.7,
+  "weight": 52.2,
+  "moves": {
+    "levelUp": [
+      {"level": 1, "move": "Pound"},
+      {"level": 1, "move": "Leer"},
+      {"level": 6, "move": "Absorb"}],
+    "eggMoves": ["Crunch", "Dragon Breath"],
+    "tmMoves": ["Toxic", "Hidden Power"]
+  },
+  "description": "Sceptile is said to be the king of forests."
+}

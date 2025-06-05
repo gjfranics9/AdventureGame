@@ -1,0 +1,21 @@
+{
+  "id": 392,
+  "name": "Infernape",
+  "type": ["Fire", "Fighting"],
+  "baseStats": { "hp": 76, "attack": 104, "defense": 71, "specialAttack": 104, "specialDefense": 71, "speed": 108 },
+  "baseExperience": 240,
+  "evolution": null,
+  "abilities": ["Blaze"], "hiddenAbility": "Iron Fist",
+  "sprite": "sprites/infernape.png",
+  "backSprite": "sprites/infernape_back.png",
+  "icon": "icons/infernape.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Field", "Human-Like"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 1.2,
+  "weight": 55.0,
+  "moves": { "levelUp": [], "eggMoves": [], "tmMoves": [] },
+  "description": ""
+}

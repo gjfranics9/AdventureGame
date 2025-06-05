@@ -25,13 +25,13 @@ class PlayerTest {
         gp.stubOverworldState.setupState();
 
         player = new Player(gp.stubOverworldState,keyH);
+        player.worldX = 0;
+        player.worldY = 0;
     }
 
 
     @Test
     void testRightMovementWithoutCollision() {
-        player.worldX = 7;
-        player.worldY = 7;
         int startX = player.worldX;
 
         cChecker.simulateCollision = false;
@@ -49,8 +49,6 @@ class PlayerTest {
 
     @Test
     void testLeftMovementWithoutCollision() {
-        player.worldX = 7; // Not divisible by tileSize
-        player.worldY = 7;
         int startX = player.worldX;
 
         cChecker.simulateCollision = false;
@@ -68,8 +66,6 @@ class PlayerTest {
 
     @Test
     void testUpMovementWithoutCollision() {
-        player.worldX = 7; // Not divisible by tileSize
-        player.worldY = 7;
         int startY = player.worldY;
 
         cChecker.simulateCollision = false;
@@ -87,8 +83,6 @@ class PlayerTest {
 
     @Test
     void testDownMovementWithoutCollision() {
-        player.worldX = 7; // Not divisible by tileSize
-        player.worldY = 7;
         int startY = player.worldY;
 
         cChecker.simulateCollision = false;

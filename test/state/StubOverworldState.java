@@ -1,6 +1,5 @@
 package state;
 
-import main.CollisionChecker;
 import main.StubCollisionChecker;
 import main.StubGamePanel;
 
@@ -8,7 +7,6 @@ import java.awt.*;
 
 public class StubOverworldState extends OverworldState {
 
-    public CollisionChecker cChecker;
     public StubOverworldState(StubGamePanel gp, StubCollisionChecker stubChecker) {
         super(gp);
         super.cChecker = stubChecker;

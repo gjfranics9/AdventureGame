@@ -35,8 +35,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void setupGame(){
-        stateManager.setState(stateManager.overworldState);
-        stateManager.currentState.setupState();
+        stateManager.setState("Overworld");
+        stateManager.setupState();
     }
     public void startGameThread(){
 
@@ -74,7 +74,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        stateManager.getCurrentState().update();
+        stateManager.update();
     }
 
     public void paintComponent(Graphics g){
@@ -82,7 +82,7 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
-        if(stateManager.currentState != null){stateManager.currentState.draw(g2);};
+        if(stateManager.getCurrentState() != null){stateManager.draw(g2);}
 
         g2.dispose();
     }

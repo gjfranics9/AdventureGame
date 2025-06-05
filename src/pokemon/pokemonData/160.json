@@ -1,0 +1,22 @@
+{
+  "id": 160,
+  "name": "Feraligatr",
+  "type": ["Water"],
+  "baseStats": {"hp": 85, "attack": 105, "defense": 100, "specialAttack": 79, "specialDefense": 83, "speed": 78},
+  "baseExperience": 210,
+  "evolution": null,
+  "abilities": ["Torrent"],
+  "hiddenAbility": "Sheer Force",
+  "sprite": "sprites/feraligatr.png",
+  "backSprite": "sprites/feraligatr_back.png",
+  "icon": "icons/feraligatr.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Water 1"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.6,
+  "weight": 9.5,
+  "moves": {"levelUp": [], "eggMoves": [], "tmMoves": []},
+  "description": "If it loses a fang, a new one grows back in its place. There are always 48 fangs lining its mouth."
+}
