@@ -25,27 +25,41 @@ public class CollisionChecker {
 
         int checkedTile;
 
-        switch (entity.direction) {
-            case "up" -> {
-                entityTopRow = (entityTopWorldY - entity.speed) / overworldState.gp.tileSize;
-                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
-                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
+
+        try {
+            switch (entity.direction) {
+                case "up" -> {
+                    entityTopRow = (entityTopWorldY - entity.speed) / overworldState.gp.tileSize;
+                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
+                    if (overworldState.tileM.tile[checkedTile].collision) {
+                        entity.collisionOn = true;
+                    }
+                }
+                case "down" -> {
+                    entityBottomRow = (entityBottomWorldY) / overworldState.gp.tileSize;
+                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityBottomRow];
+                    if (overworldState.tileM.tile[checkedTile].collision) {
+                        entity.collisionOn = true;
+                    }
+                }
+                case "left" -> {
+                    entityLeftCol = (entityLeftWorldX - entity.speed) / overworldState.gp.tileSize;
+                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
+                    if (overworldState.tileM.tile[checkedTile].collision) {
+                        entity.collisionOn = true;
+                    }
+                }
+                case "right" -> {
+                    entityRightCol = (entityRightWorldX) / overworldState.gp.tileSize;
+                    checkedTile = overworldState.mm.currentTileMap[entityRightCol][entityTopRow];
+                    if (overworldState.tileM.tile[checkedTile].collision) {
+                        entity.collisionOn = true;
+                    }
+                }
             }
-            case "down" -> {
-                entityBottomRow = (entityBottomWorldY) / overworldState.gp.tileSize;
-                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityBottomRow];
-                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
-            }
-            case "left" -> {
-                entityLeftCol = (entityLeftWorldX - entity.speed) / overworldState.gp.tileSize;
-                checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
-                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
-            }
-            case "right" -> {
-                entityRightCol = (entityRightWorldX) / overworldState.gp.tileSize;
-                checkedTile = overworldState.mm.currentTileMap[entityRightCol][entityTopRow];
-                if(overworldState.tileM.tile[checkedTile].collision){entity.collisionOn = true;}
-            }
+        }
+        catch (Exception e){
+            entity.collisionOn = true;
         }
     }
 }

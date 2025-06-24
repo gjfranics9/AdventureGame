@@ -1,4 +1,4 @@
-package pokemon;
+package pokemon.moves;
 
 public class LevelUpMoveList {
     public int level;

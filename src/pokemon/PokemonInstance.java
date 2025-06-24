@@ -2,6 +2,7 @@ package pokemon;
 
 import pokemon.abilities.Ability;
 import pokemon.abilities.AbilityFactory;
+import pokemon.moves.BaseMove;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

@@ -27,6 +27,7 @@ public class GameStateManager {
             newState = null;
         }
         this.currentState = newState;
+        this.currentState.setupState();
     }
 
     public void update() {

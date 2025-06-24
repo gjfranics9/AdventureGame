@@ -1,5 +1,6 @@
 package main;
 
+import pokemon.PokemonManager;
 import state.GameStateManager;
 
 
@@ -23,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
     //Class Settings
     public KeyHandler keyH = new KeyHandler();
     private final GameStateManager stateManager = new GameStateManager(this);
+    public PokemonManager pokemonManager = new PokemonManager();
     Thread gameThread;
 
 
@@ -37,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void setupGame(){
         stateManager.setState("Overworld");
         stateManager.setupState();
+        pokemonManager.generateNewPokemon(25);
     }
     public void startGameThread(){
 
@@ -74,6 +77,10 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
+        if(keyH.Bpressed)
+        {
+            stateManager.setState("Battle");
+        }
         stateManager.update();
     }
 

@@ -16,6 +16,7 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+    public BufferedImage image;
 
     public Player(OverworldState overworldState, KeyHandler keyH){
 
@@ -63,11 +64,7 @@ public class Player extends Entity{
         }
     }
 
-    public void update() {
-        sprinting = keyH.spacePressed;
-        int tileSize = overworldState.gp.tileSize;
-        int actualSpeed = sprinting ? 6 : 4;
-
+    public void checkWhichDirectionPlayerFacing(int tileSize){
         if (!moving && worldX % tileSize == 0 && worldY % tileSize == 0) {
             if (keyH.upPressed) {
                 direction = "up";
@@ -83,6 +80,15 @@ public class Player extends Entity{
                 moving = true;
             }
         }
+    }
+
+    public void update() {
+        sprinting = keyH.spacePressed;
+        int tileSize = overworldState.gp.tileSize;
+        int actualSpeed = sprinting ? 6 : 4;
+
+        checkWhichDirectionPlayerFacing(tileSize);
+
 
         if (moving) {
             collisionOn = false;
@@ -146,8 +152,7 @@ public class Player extends Entity{
         }
     }
 
-    public void draw(Graphics2D g2){
-        BufferedImage image = null;
+    public void selectDrawnImage(){
         switch (direction) {
             case "up" -> {
                 if (moving) {
@@ -198,6 +203,9 @@ public class Player extends Entity{
                 }
             }
         }
+    }
+    public void draw(Graphics2D g2){
+        selectDrawnImage();
         g2.drawImage(image, screenX, screenY, overworldState.gp.tileSize, overworldState.gp.tileSize, null);
     }
 }

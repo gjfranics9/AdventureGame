@@ -1,5 +1,7 @@
 package pokemon;
 
+import pokemon.moves.MoveList;
+
 import java.util.Map;
 
 public class PokemonData {

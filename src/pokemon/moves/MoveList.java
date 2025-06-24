@@ -1,4 +1,5 @@
-package pokemon;
+package pokemon.moves;
+
 
 import java.util.List;
 

@@ -1,16 +1,23 @@
 package pokemon;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PokemonManager {
 
-    public PokemonInstance[] ownedPokemon;
+    public List<PokemonInstance> ownedPokemon;
     public PokemonManager(){
-        ownedPokemon = new PokemonInstance[1024];
+        ownedPokemon = new ArrayList<>();
     }
 
-    public void generateNewPokemon(int ID) throws IOException {
+    public void generateNewPokemon(int ID){
         long pID = Integer.toUnsignedLong(new java.util.Random().nextInt());
-        PokemonInstance pokemon = new PokemonInstance(ID, pID);
+        try {
+            PokemonInstance pokemon = new PokemonInstance(ID, pID);
+            ownedPokemon.add(pokemon);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
