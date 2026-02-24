@@ -1,0 +1,22 @@
+{
+  "id": 159,
+  "name": "Croconaw",
+  "type": ["Water"],
+  "baseStats": {"hp": 65, "attack": 80, "defense": 80, "specialAttack": 59, "specialDefense": 63, "speed": 58},
+  "baseExperience": 142,
+  "evolution": {"evolvesTo": "Feraligatr", "level": 30},
+  "abilities": ["Torrent"],
+  "hiddenAbility": "Sheer Force",
+  "sprite": "sprites/croconaw.png",
+  "backSprite": "sprites/croconaw_back.png",
+  "icon": "icons/croconaw.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Water 1"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.6,
+  "weight": 9.5,
+  "moves": {"levelUp": [], "eggMoves": [], "tmMoves": []},
+  "description": "If it loses a fang, a new one grows back in its place. There are always 48 fangs lining its mouth."
+}

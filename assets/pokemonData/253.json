@@ -1,0 +1,25 @@
+{
+  "id": 253,
+  "name": "Grovyle",
+  "type": ["Grass"],
+  "baseStats": {"hp": 50, "attack": 65, "defense": 45, "specialAttack": 85, "specialDefense": 65, "speed": 95},
+  "baseExperience": 142,
+  "evolution": {"evolvesTo": "Sceptile", "level": 36},
+  "abilities": ["Overgrow"], "hiddenAbility": "Unburden",
+  "sprite": "sprites/grovyle.png",
+  "backSprite": "sprites/grovyle_back.png",
+  "icon": "icons/grovyle.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Dragon"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.9,
+  "weight": 21.6,
+  "moves": {
+    "levelUp": [{"level": 1, "move": "Pound"}, {"level": 1, "move": "Leer"}, {"level": 6, "move": "Absorb"}],
+    "eggMoves": ["Crunch", "Dragon Breath"],
+    "tmMoves": ["Toxic", "Hidden Power"]
+    },
+  "description": "Grovyle is quick and agile in trees."
+}

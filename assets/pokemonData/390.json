@@ -1,0 +1,29 @@
+{
+  "id": 390,
+  "name": "Chimchar",
+  "type": ["Fire"],
+  "baseStats": {"hp": 44, "attack": 58, "defense": 44, "specialAttack": 58, "specialDefense": 44, "speed": 61},
+  "baseExperience": 62,
+  "evolution": {"evolvesTo": "Monferno", "level": 14},
+  "abilities": ["Blaze"], "hiddenAbility": "Iron Fist",
+  "sprite": "sprites/chimchar.png",
+  "backSprite": "sprites/chimchar_back.png",
+  "icon": "icons/chimchar.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Field", "Human-Like"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.5,
+  "weight": 6.2,
+  "moves": {"levelUp": [
+    {"level": 1, "move": "Scratch"},
+    {"level": 1, "move": "Leer"},
+    {"level": 7, "move": "Ember"},
+    {"level": 9, "move": "Taunt"}
+  ],
+    "eggMoves": ["Assist", "Counter"],
+    "tmMoves": ["Toxic", "Bulk Up"]
+  },
+  "description": "Chimchar lives on rocky mountains and uses its fiery tail for communication."
+}

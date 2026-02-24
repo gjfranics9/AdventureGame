@@ -1,0 +1,2 @@
+pokeball, 15, 15
+pokeball, 15, 16

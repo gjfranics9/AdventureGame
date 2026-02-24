@@ -1,0 +1,22 @@
+{
+  "id": 158,
+  "name": "Totodile",
+  "type": ["Water"],
+  "baseStats": {"hp": 50, "attack": 65, "defense": 64, "specialAttack": 44, "specialDefense": 48, "speed": 43},
+  "baseExperience": 63,
+  "evolution": {"evolvesTo": "Croconaw", "level": 18},
+  "abilities": ["Torrent"],
+  "hiddenAbility": "Sheer Force",
+  "sprite": "sprites/totodile.png",
+  "backSprite": "sprites/totodile_back.png",
+  "icon": "icons/totodile.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Water 1"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.6,
+  "weight": 9.5,
+  "moves": {"levelUp": [], "eggMoves": [], "tmMoves": []},
+  "description": ""
+}

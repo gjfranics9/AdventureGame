@@ -1,0 +1,25 @@
+{
+  "id": 252,
+  "name": "Treecko",
+  "type": ["Grass"],
+  "baseStats": {"hp": 40, "attack": 45, "defense": 35, "specialAttack": 65, "specialDefense": 55, "speed": 70},
+  "baseExperience": 62,
+  "evolution": {"evolvesTo": "Grovyle", "level": 16},
+  "abilities": ["Overgrow"], "hiddenAbility": "Unburden",
+  "sprite": "sprites/treecko.png",
+  "backSprite": "sprites/treecko_back.png",
+  "icon": "icons/treecko.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Monster", "Dragon"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.5,
+  "weight": 5.0,
+  "moves": {
+    "levelUp": [{"level": 1, "move": "Pound"}, {"level": 1, "move": "Leer"}, {"level": 6, "move": "Absorb"}],
+    "eggMoves": ["Crunch", "Dragon Breath"],
+    "tmMoves": ["Toxic", "Hidden Power"]
+  },
+  "description": "Treecko is cool, calm, and collected."
+}

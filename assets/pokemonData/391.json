@@ -1,0 +1,32 @@
+{
+  "id": 391,
+  "name": "Monferno",
+  "type": ["Fire", "Fighting"],
+  "baseStats": {
+    "hp": 64, "attack": 78, "defense": 52, "specialAttack": 78, "specialDefense": 52, "speed": 81
+  },
+  "baseExperience": 142,
+  "evolution": {"evolvesTo": "Infernape", "level": 36},
+  "abilities": ["Blaze"], "hiddenAbility": "Iron Fist",
+  "sprite": "sprites/monferno.png",
+  "backSprite": "sprites/monferno_back.png",
+  "icon": "icons/monferno.png",
+  "genderRatio": {"male": 87.5, "female": 12.5},
+  "catchRate": 45,
+  "eggGroups": ["Field", "Human-Like"],
+  "hatchSteps": 5120,
+  "baseFriendship": 70,
+  "height": 0.9,
+  "weight": 22.0,
+  "moves": {
+    "levelUp": [
+      {"level": 1, "move": "Scratch"},
+      {"level": 1, "move": "Leer"},
+      {"level": 7, "move": "Ember"},
+      {"level": 9, "move": "Taunt"}
+    ],
+    "eggMoves": ["Assist", "Counter"],
+    "tmMoves": ["Toxic", "Bulk Up"]
+  },
+  "description": "Monferno intimidates attackers by stretching its fire tail to appear bigger."
+}

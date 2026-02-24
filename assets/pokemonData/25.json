@@ -1,0 +1,32 @@
+{
+  "id": 25,
+  "name": "Pikachu",
+  "type": ["Electric"],
+  "baseStats": {
+    "hp": 35, "attack": 55, "defense": 40, "specialAttack": 50, "specialDefense": 50, "speed": 90
+  },
+  "baseExperience": 112,
+  "evolution": {"evolvesTo": "Raichu", "level": null, "item": "Thunder Stone"},
+  "abilities": ["Static"], "hiddenAbility": "Lightning Rod",
+  "sprite": "sprites/pikachu.png",
+  "backSprite": "sprites/pikachu_back.png",
+  "icon": "icons/pikachu.png",
+  "genderRatio": {"male": 50, "female": 50},
+  "catchRate": 190,
+  "eggGroups": ["Field", "Fairy"],
+  "hatchSteps": 2560,
+  "baseFriendship": 70,
+  "height": 0.4,
+  "weight": 6.0,
+  "moves": {
+    "levelUp": [
+      {"level": 1, "move": "Thunder Shock"},
+      {"level": 1, "move": "Growl"},
+      {"level": 5, "move": "Play Nice"},
+      {"level": 10, "move": "Quick Attack"}
+    ],
+    "eggMoves": ["Bestow", "Bide"],
+    "tmMoves": ["Thunderbolt", "Volt Switch"]
+  },
+  "description": "Pikachu releases electric charges from its cheeks when threatened."
+}
