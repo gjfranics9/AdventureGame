@@ -12,8 +12,6 @@ public class Player extends Entity{
     OverworldState overworldState;
     public KeyHandler keyH;
     private int keyTimer;
-    public final int screenX;
-    public final int screenY;
     public Texture image;
 
     public Player(OverworldState overworldState, KeyHandler keyH){
@@ -21,9 +19,6 @@ public class Player extends Entity{
         this.overworldState = overworldState;
         this.keyH = keyH;
         this.keyTimer = 0;
-
-        screenX = overworldState.gp.screenWidth/2;
-        screenY = overworldState.gp.screenHeight/2;
 
         solidArea = new Rectangle();
         solidArea.x = 0;
@@ -211,6 +206,6 @@ public class Player extends Entity{
     }
     public void render(SpriteBatch batch) {
         selectDrawnImage();
-        batch.draw(image, screenX, screenY, overworldState.gp.tileSize, overworldState.gp.tileSize);
+        batch.draw(image, worldX, worldY, overworldState.gp.tileSize, overworldState.gp.tileSize);
     }
 }

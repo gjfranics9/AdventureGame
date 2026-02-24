@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import game.entity.Player;
 import game.pokemon.PokemonManager;
 import game.state.GameStateManager;
 
@@ -19,6 +20,7 @@ public class Game extends ApplicationAdapter {
     public final int screenHeight = tileSize * maxScreenRow;
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
+    public Player player;
 
     private SpriteBatch batch;
 
@@ -54,6 +56,11 @@ public class Game extends ApplicationAdapter {
         // CLEAR SCREEN
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        //SET CAMERA
+
+        camera.position.set(player.worldX + tileSize/2f, player.worldY + tileSize/2f, 0);
+        camera.update();
 
         // DRAW
         batch.setProjectionMatrix(camera.combined);

@@ -13,14 +13,11 @@ public class SuperObject {
 
     public void render(SpriteBatch batch, OverworldState overworldState) {
 
-        int screenX = worldX - overworldState.player.worldX + overworldState.player.screenX;
-        int screenY = worldY - overworldState.player.worldY + overworldState.player.screenY;
-
-        if(worldX+overworldState.gp.tileSize>overworldState.player.worldX-overworldState.player.screenX &&
-                worldX-overworldState.gp.tileSize<overworldState.player.worldX+overworldState.player.screenX &&
-                worldY+overworldState.gp.tileSize>overworldState.player.worldY-overworldState.player.screenY &&
-                worldY-overworldState.gp.tileSize<overworldState.player.worldY+overworldState.player.screenY){
-            batch.draw(texture, screenX, screenY, overworldState.gp.tileSize, overworldState.gp.tileSize);
+        if(worldX+overworldState.gp.tileSize>overworldState.player.worldX&&
+                worldX-overworldState.gp.tileSize<overworldState.player.worldX &&
+                worldY+overworldState.gp.tileSize>overworldState.player.worldY &&
+                worldY-overworldState.gp.tileSize<overworldState.player.worldY){
+            batch.draw(texture, worldX, worldY, overworldState.gp.tileSize, overworldState.gp.tileSize);
         }
     }
 }

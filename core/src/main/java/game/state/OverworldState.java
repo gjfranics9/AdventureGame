@@ -31,6 +31,7 @@ public class OverworldState implements GameState {
         this.tileM = new TileManager(this);
         this.objectHandler = new ObjectHandler(this);
         this.player = new Player(this, gp.keyH);
+        gp.player = player;
     }
 
 

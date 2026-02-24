@@ -7,64 +7,54 @@ public class CollisionChecker {
 
     OverworldState overworldState;
 
-    public CollisionChecker(OverworldState overworldState){
+    public CollisionChecker(OverworldState overworldState) {
         this.overworldState = overworldState;
     }
 
-    public void checkTile(Entity entity){
+    public void checkTile(Entity e) {
+        int ts = overworldState.gp.tileSize;
 
-        int entityLeftWorldX = entity.worldX - entity.solidArea.x;
-        int entityRightWorldX = entity.worldX + entity.solidArea.x + entity.solidArea.width;
-        int entityTopWorldY = entity.worldY - entity.solidArea.y;
-        int entityBottomWorldY = entity.worldY + entity.solidArea.y + entity.solidArea.height;
+        int left   = e.worldX + e.solidArea.x;
+        int bottom = e.worldY + e.solidArea.y;
+        int right  = left + e.solidArea.width  - 1;
+        int top    = bottom + e.solidArea.height - 1;
 
-        int entityLeftCol = entityLeftWorldX / overworldState.gp.tileSize;
-        int entityRightCol = entityRightWorldX / overworldState.gp.tileSize;
-        int entityTopRow = entityTopWorldY / overworldState.gp.tileSize;
-        int entityBottomRow = entityBottomWorldY / overworldState.gp.tileSize;
+        int leftCol   = left / ts;
+        int rightCol  = right / ts;
+        int bottomRow = bottom / ts;
+        int topRow    = top / ts;
 
-        int checkedTile;
+        e.collisionOn = false;
 
         try {
-            switch (entity.direction) {
-
-                case "up":
-                    entityTopRow = (entityTopWorldY - entity.speed) / overworldState.gp.tileSize;
-                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
-                    if (overworldState.tileM.tile[checkedTile].collision) {
-                        entity.collisionOn = true;
-                    }
-                    break;
-
-                case "down":
-                    entityBottomRow = (entityBottomWorldY) / overworldState.gp.tileSize;
-                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityBottomRow];
-                    if (overworldState.tileM.tile[checkedTile].collision) {
-                        entity.collisionOn = true;
-                    }
-                    break;
-
-                case "left":
-                    entityLeftCol = (entityLeftWorldX - entity.speed) / overworldState.gp.tileSize;
-                    checkedTile = overworldState.mm.currentTileMap[entityLeftCol][entityTopRow];
-                    if (overworldState.tileM.tile[checkedTile].collision) {
-                        entity.collisionOn = true;
-                    }
-                    break;
-
-                case "right":
-                    entityRightCol = (entityRightWorldX) / overworldState.gp.tileSize;
-                    checkedTile = overworldState.mm.currentTileMap[entityRightCol][entityTopRow];
-                    if (overworldState.tileM.tile[checkedTile].collision) {
-                        entity.collisionOn = true;
-                    }
-                    break;
-
-                default:
-                    break;
+            switch (e.direction) {
+                case "up" -> {
+                    int nextTopRow = (top + e.speed) / ts; // Y-up: up increases Y
+                    int t1 = overworldState.currentTileMap[leftCol][nextTopRow];
+                    int t2 = overworldState.currentTileMap[rightCol][nextTopRow];
+                    if (overworldState.tileM.tile[t1].collision || overworldState.tileM.tile[t2].collision) e.collisionOn = true;
+                }
+                case "down" -> {
+                    int nextBottomRow = (bottom - e.speed) / ts; // down decreases Y
+                    int t1 = overworldState.currentTileMap[leftCol][nextBottomRow];
+                    int t2 = overworldState.currentTileMap[rightCol][nextBottomRow];
+                    if (overworldState.tileM.tile[t1].collision || overworldState.tileM.tile[t2].collision) e.collisionOn = true;
+                }
+                case "left" -> {
+                    int nextLeftCol = (left - e.speed) / ts;
+                    int t1 = overworldState.currentTileMap[nextLeftCol][topRow];
+                    int t2 = overworldState.currentTileMap[nextLeftCol][bottomRow];
+                    if (overworldState.tileM.tile[t1].collision || overworldState.tileM.tile[t2].collision) e.collisionOn = true;
+                }
+                case "right" -> {
+                    int nextRightCol = (right + e.speed) / ts;
+                    int t1 = overworldState.currentTileMap[nextRightCol][topRow];
+                    int t2 = overworldState.currentTileMap[nextRightCol][bottomRow];
+                    if (overworldState.tileM.tile[t1].collision || overworldState.tileM.tile[t2].collision) e.collisionOn = true;
+                }
             }
-        } catch (Exception e) {
-            entity.collisionOn = true;
+        } catch (Exception ex) {
+            e.collisionOn = true;
         }
     }
 }

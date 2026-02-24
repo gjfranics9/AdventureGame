@@ -99,6 +99,20 @@ public class MapManager {
         } catch (IOException e) {
             throw new RuntimeException("Failed to load tile map: " + fileDirectory, e);
         }
+        currentTileMap = flipMapY(currentTileMap);
+    }
+
+    static int[][] flipMapY(int[][] src) {
+        int cols = src.length;
+        int rows = src[0].length;
+        int[][] out = new int[cols][rows];
+
+        for (int c = 0; c < cols; c++) {
+            for (int r = 0; r < rows; r++) {
+                out[c][rows - 1 - r] = src[c][r];
+            }
+        }
+        return out;
     }
     public int[][] getCurrentTileMap(){
         return currentTileMap;
